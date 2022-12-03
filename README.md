@@ -2,6 +2,7 @@ API - Vem Pra Quadra
 
 # Comandos para rodar a api
  1- Ter o node js instaldo na maquina
+ 
  2 - Executar os comandos  
  
  # Baixa todas as depedencias do projeto
