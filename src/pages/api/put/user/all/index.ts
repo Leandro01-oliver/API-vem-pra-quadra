@@ -26,7 +26,7 @@ const handlerPutUserAll = async (
                     tel: tel,
                     type_permission: type_permission,
                 }
-            }).then((result)=>{
+            }).then((result : any)=>{
                 res.status(201).json(result);
             }).catch((err : Error)=>{
                 res.status(401).json(err.message)
