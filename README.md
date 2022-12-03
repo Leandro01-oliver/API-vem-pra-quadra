@@ -6,7 +6,11 @@ API - Vem Pra Quadra
  2 - Executar os comandos  
  
  # Baixa todas as depedencias do projeto
- ```bash npm i ```
+  ```bash
+     npm i
+```
  
  # Realiza as migrações do modelo relacional que foi definido na pasta raiz do projeto
-  ```bash npx prisma migrate dev ```
+  ```bash 
+       npx prisma migrate dev 
+  ```
