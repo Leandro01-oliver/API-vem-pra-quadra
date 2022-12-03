@@ -22,7 +22,7 @@ const handlerGetUserByEmail = async (
                    id:true
                 }
                }
-            ).then((result)=>{
+            ).then((result : any)=>{
                 res.status(201).json(result)
             }).catch((err)=>{
                 res.status(401).json(err.message)

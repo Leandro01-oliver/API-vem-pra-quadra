@@ -18,7 +18,7 @@ const handlerGetUserById = async (
                     id: Number(id)
                  }
                 }
-             ).then((result)=>{
+             ).then((result : any)=>{
                 res.status(201).json(result)
             }).catch((err)=>{
                 res.status(401).json(err.message)

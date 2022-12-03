@@ -10,7 +10,7 @@ const handlerGetUserAll = async (
     if(req.method === "GET"){
         try{
             await userModel.findMany()
-            .then((result)=>{
+            .then((result : any)=>{
                 res.status(201).json(result);
             }).catch((err)=>{
                 res.status(401).json(err.message)
