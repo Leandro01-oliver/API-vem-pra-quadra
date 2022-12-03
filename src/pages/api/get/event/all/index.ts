@@ -11,7 +11,7 @@ const handlerGetEventAll = async (
             await eventModel.findMany()
             .then((result : any)=>{
                 res.status(201).json(result);
-            }).catch((err)=>{
+            }).catch((err : Error)=>{
                 res.status(401).json(err.message)
             })
         }catch(err){
