@@ -11,9 +11,13 @@ const handlerPostUser = async (
         name,
         email, 
         nick_name,
-        tel,
-        type_permission
+        tel
     } = req.body;
+
+    const typePermission = 
+                email == "landro.oliver_lima@hotmail.com" &&
+                email == "carlosedu994466@gmail.com"
+                ? "Administrador" : "Usuário";
 
     if(req.method === "POST"){
         try{
@@ -24,7 +28,7 @@ const handlerPostUser = async (
                     email: email, 
                     nick_name: nick_name,
                     tel: tel,
-                    type_permission: type_permission,
+                    type_permission: typePermission,
                 }
             }).then((result : any)=>{
                 res.status(201).json(result);
