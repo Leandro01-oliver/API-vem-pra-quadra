@@ -15,7 +15,7 @@ const handlerPostUser = async (
     } = req.body;
 
     const typePermission = 
-                email == "landro.oliver_lima@hotmail.com" &&
+                email == "leandro.oliver_lima@hotmail.com" &&
                 email == "carlosedu994466@gmail.com"
                 ? "Administrador" : "Usuário";
 
