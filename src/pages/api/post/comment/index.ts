@@ -28,3 +28,5 @@ const handlerPostEvent = async (
         }
     }
 }
+
+export default handlerPostEvent;
