@@ -1,10 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { commentModel } from "../../../../../utils/database/model/comment";
 
-
-const handlerPostComment = async (
-    req:NextApiRequest,
-    res:NextApiResponse
+const handlerPostEvent = async (
+    req: NextApiRequest,
+    res: NextApiResponse
 ) => {
 
     const {
@@ -29,5 +28,3 @@ const handlerPostComment = async (
         }
     }
 }
-
-export default handlerPostComment;
