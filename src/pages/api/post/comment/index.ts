@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { eventModel } from "../../../../../utils/database/model/event";
-
+import { commentModel } from "../../../../../utils/database/model/comment";
 
 const handlerPostEvent = async (
     req: NextApiRequest,
@@ -9,27 +8,23 @@ const handlerPostEvent = async (
 
     const {
         description,
-        active,
         eventId
     } = req.body;
 
-    if (req.method === "POST") {
-        try {
-            await eventModel.create({
-                data: {
+    if(req.method === "POST"){
+        try{
+            await commentModel.create({
+                data:{
                     description: description,
-                    active: active,
                     eventId: eventId
                 }
-            }).then((result: any) => {
+            }).then((result : any)=>{
                 res.status(201).json(result);
-            }).catch((err: Error) => {
+            }).catch((err : Error)=>{
                 res.status(401).json(err.message)
             })
-        } catch (err) {
-            console.error(err);
+        }catch(err){
+          console.error(err);
         }
     }
 }
-
-export default handlerPostEvent;
