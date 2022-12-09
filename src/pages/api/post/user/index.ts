@@ -11,6 +11,7 @@ const handlerPostUser = async (
         name,
         email,
         nick_name,
+        cpf,
         tel
     } = req.body;
 
@@ -28,6 +29,7 @@ const handlerPostUser = async (
                     email: email,
                     nick_name: nick_name,
                     tel: tel,
+                    cpf: cpf,
                     type_permission: typePermission,
                 }
             }).then((result: any) => {

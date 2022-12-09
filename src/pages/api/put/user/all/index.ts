@@ -12,6 +12,7 @@ const handlerPutUserAll = async (
         email, 
         nick_name,
         tel,
+        cpf,
         type_permission
     } = req.body;
 
@@ -24,6 +25,7 @@ const handlerPutUserAll = async (
                     email: email, 
                     nick_name: nick_name,
                     tel: tel,
+                    cpf: cpf,
                     type_permission: type_permission,
                 }
             }).then((result : any)=>{

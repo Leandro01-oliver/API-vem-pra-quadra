@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { userModel } from "../../../../../../utils/database/model/user";
 
 
-const handlerPostEvent = async (
+const handlerPutByIdEvent = async (
     req:NextApiRequest,
     res:NextApiResponse
 ) => {
@@ -45,4 +45,4 @@ const handlerPostEvent = async (
     }
 }
 
-export default handlerPostEvent;
+export default handlerPutByIdEvent;
