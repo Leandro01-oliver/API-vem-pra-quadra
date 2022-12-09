@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { likeModel } from "../../../../../../../utils/database/model/like";
+import { commentModel } from "../../../../../../../../utils/database/model/comment";
 
-const handlerGetLikeByAtivo = async (
+const handlerGetCommentByActiveId = async (
     req:NextApiRequest,
     res:NextApiResponse
 ) => {
@@ -12,10 +12,10 @@ const handlerGetLikeByAtivo = async (
 
     if(req.method === "GET"){
         try{
-           await likeModel.findMany({
+           await commentModel.findMany({
             where:{
-               eventId:Number(eventId),
-               active:true
+                eventId:Number(eventId),
+                active:true
             }
            }
         ).then((result : any)=>{
@@ -29,4 +29,4 @@ const handlerGetLikeByAtivo = async (
     }
 }
 
-export default handlerGetLikeByAtivo;
+export default handlerGetCommentByActiveId;

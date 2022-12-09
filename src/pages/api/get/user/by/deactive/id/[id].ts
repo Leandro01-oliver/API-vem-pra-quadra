@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { userModel } from "../../../../../../../utils/database/model/user";
+import { userModel } from "../../../../../../../../utils/database/model/user";
 
-const handlerGetUserById = async (
+const handlerGetUserByDeactiveId = async (
     req:NextApiRequest,
     res:NextApiResponse
 ) => {
@@ -12,10 +12,11 @@ const handlerGetUserById = async (
 
     if(req.method === "GET"){
         try{
-            await userModel.findUnique(
+            await userModel.findMany(
                 {
                  where:{
-                    id: Number(id)
+                    id: Number(id),
+                    active:false
                  }
                 }
              ).then((result : any)=>{
@@ -29,4 +30,4 @@ const handlerGetUserById = async (
     }
 }
 
-export default handlerGetUserById;
+export default handlerGetUserByDeactiveId;

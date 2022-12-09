@@ -1,20 +1,21 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { commentModel } from "../../../../../../../utils/database/model/comment";
+import { eventModel } from "../../../../../../../../utils/database/model/event";
 
-const handlerGetCommentById = async (
+const handlerGetEventByDeactiveId = async (
     req:NextApiRequest,
     res:NextApiResponse
 ) => {
 
     const {
-        eventId
+        id
     } = req.query;
 
     if(req.method === "GET"){
         try{
-           await commentModel.findUnique({
+           await eventModel.findMany({
             where:{
-                eventId:Number(eventId)
+               id: Number(id),
+               active:false
             }
            }
         ).then((result : any)=>{
@@ -28,4 +29,4 @@ const handlerGetCommentById = async (
     }
 }
 
-export default handlerGetCommentById;
+export default handlerGetEventByDeactiveId;

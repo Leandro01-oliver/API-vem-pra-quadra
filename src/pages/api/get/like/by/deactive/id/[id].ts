@@ -1,20 +1,21 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { eventModel } from "../../../../../../../utils/database/model/event";
+import { likeModel } from "../../../../../../../../utils/database/model/like";
 
-const handlerGetEventById = async (
+const handlerGetLikeByDeactiveId = async (
     req:NextApiRequest,
     res:NextApiResponse
 ) => {
 
     const {
-        id
+        eventId
     } = req.query;
 
     if(req.method === "GET"){
         try{
-           await eventModel.findUnique({
+           await likeModel.findMany({
             where:{
-               id: Number(id)
+               eventId:Number(eventId),
+               active:true
             }
            }
         ).then((result : any)=>{
@@ -28,4 +29,4 @@ const handlerGetEventById = async (
     }
 }
 
-export default handlerGetEventById;
+export default handlerGetLikeByDeactiveId;
