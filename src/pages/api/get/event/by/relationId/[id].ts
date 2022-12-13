@@ -15,6 +15,9 @@ const handlerGetEventByRelationId = async (
            await eventModel.findUnique({
             where:{
               title: title?.toString()
+            },
+            select:{
+                id: true,
             }
            }
         ).then((result : any)=>{

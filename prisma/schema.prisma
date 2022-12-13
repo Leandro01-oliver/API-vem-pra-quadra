@@ -10,6 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model User {
   id              Int           @id @default(autoincrement())
   image           String        @db.VarChar(200)
@@ -24,7 +25,6 @@ model User {
   updateAt        DateTime?     @updatedAt
   Event           Event[]
   Participant     Participant[]
-
   @@map("tb_user")
 }
 
@@ -48,7 +48,6 @@ model Event {
   Comment       Comment[]
   Participant   Participant[]
   Like          Like[]
-
   @@map("tb_event")
 }
 
@@ -60,7 +59,6 @@ model Comment {
   updateAt    DateTime? @updatedAt
   event       Event?    @relation(fields: [eventId], references: [id])
   eventId     Int       @unique
-
   @@map("tb_comment")
 }
 
@@ -71,7 +69,6 @@ model Like {
   updateAt  DateTime? @updatedAt
   event     Event?    @relation(fields: [eventId], references: [id])
   eventId   Int       @unique
-
   @@map("tb_like")
 }
 
@@ -84,6 +81,5 @@ model Participant {
   userId    Int
   event     Event?    @relation(fields: [eventId], references: [id])
   eventId   Int       @unique
-
   @@map("tb_participant")
 }
