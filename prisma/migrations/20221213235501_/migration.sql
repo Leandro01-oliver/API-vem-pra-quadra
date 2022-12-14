@@ -75,6 +75,7 @@ CREATE TABLE `tb_participant` (
     `userId` INTEGER NOT NULL,
     `eventId` INTEGER NOT NULL,
 
+    UNIQUE INDEX `tb_participant_userId_key`(`userId`),
     UNIQUE INDEX `tb_participant_eventId_key`(`eventId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

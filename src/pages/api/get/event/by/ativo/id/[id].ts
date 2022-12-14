@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { eventModel } from "../../../../../../../utils/database/model/event";
+import { eventModel } from "../../../../../../../../utils/database/model/event";
 
 const handlerGetEventByAtivo = async (
     req:NextApiRequest,

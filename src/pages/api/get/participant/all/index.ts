@@ -1,14 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { eventModel } from "../../../../../../utils/database/model/event";
+import { participantModel } from "../../../../../../utils/database/model/participant";
 
-const handlerDeleteEventAll = async (
+const handlerGetParticipantAll = async (
     req:NextApiRequest,
     res:NextApiResponse
 ) => {
 
-    if(req.method === "DELETE"){
+    if(req.method === "GET"){
         try{
-            await eventModel.deleteMany()
+            await participantModel.findMany()
             .then((result : any)=>{
                 res.status(201).json(result);
             }).catch((err : Error)=>{
@@ -20,4 +20,4 @@ const handlerDeleteEventAll = async (
     }
 }
 
-export default handlerDeleteEventAll;
+export default handlerGetParticipantAll;

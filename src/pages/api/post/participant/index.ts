@@ -1,19 +1,22 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { likeModel } from "../../../../../utils/database/model/like";
+import { participantModel } from "../../../../../utils/database/model/participant";
 
-const handlerPostLike = async (
+const handlerPostParticipant = async (
     req: NextApiRequest,
     res: NextApiResponse
 ) => {
 
     const {
+        userId,
         eventId
     } = req.body;
 
     if(req.method === "POST"){
         try{
-            await likeModel.create({
+            await participantModel.create({
                 data:{
+                    userId: userId,
                     eventId: eventId
                 }
             }).then((result : any)=>{
@@ -27,4 +30,4 @@ const handlerPostLike = async (
     }
 }
 
-export default handlerPostLike;
+export default handlerPostParticipant;

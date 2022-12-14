@@ -6,7 +6,7 @@ const handlerGetEventAll = async (
     res:NextApiResponse
 ) => {
 
-    if(req.method === "GET"){
+    if(req.method === "DELETE"){
         try{
             await userModel.deleteMany()
             .then((result : any)=>{
