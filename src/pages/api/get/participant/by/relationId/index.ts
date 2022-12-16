@@ -1,22 +1,24 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { userModel } from "../../../../../../../utils/database/model/user";
+import { participantModel } from "../../../../../../../utils/database/model/participant";
 
-const handlerGetUserByEmail = async (
+const handlerGetParticipantByRelationId = async (
     req:NextApiRequest,
     res:NextApiResponse
 ) => {
 
     const {
-        email
+        userId,
+        eventId
     } = req.query;
 
 
     if(req.method === "GET"){
         try{
-            await userModel.findFirst(
+            await participantModel.findFirst(
                {
                 where:{
-                   email: email?.toString()
+                  eventId: Number(eventId),
+                  userId: Number(userId)
                 },
                 select:{
                    id:true
@@ -33,4 +35,4 @@ const handlerGetUserByEmail = async (
     }
 }
 
-export default handlerGetUserByEmail;
+export default handlerGetParticipantByRelationId;

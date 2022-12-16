@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { userModel } from "../../../../../../utils/database/model/user";
+import { userModel } from "../../../../../../../utils/database/model/user";
 
 
-const handlerPutByIdEvent = async (
+const handlerPutEventById = async (
     req:NextApiRequest,
     res:NextApiResponse
 ) => {
@@ -45,4 +45,4 @@ const handlerPutByIdEvent = async (
     }
 }
 
-export default handlerPutByIdEvent;
+export default handlerPutEventById;

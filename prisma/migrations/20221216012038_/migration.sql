@@ -12,10 +12,6 @@ CREATE TABLE `tb_user` (
     `createdAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updateAt` DATETIME(3) NULL,
 
-    UNIQUE INDEX `tb_user_email_key`(`email`),
-    UNIQUE INDEX `tb_user_nick_name_key`(`nick_name`),
-    UNIQUE INDEX `tb_user_tel_key`(`tel`),
-    UNIQUE INDEX `tb_user_cpf_key`(`cpf`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -37,7 +33,6 @@ CREATE TABLE `tb_event` (
     `updateAt` DATETIME(3) NULL,
     `userId` INTEGER NOT NULL,
 
-    UNIQUE INDEX `tb_event_title_key`(`title`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -50,7 +45,6 @@ CREATE TABLE `tb_comment` (
     `updateAt` DATETIME(3) NULL,
     `eventId` INTEGER NOT NULL,
 
-    UNIQUE INDEX `tb_comment_eventId_key`(`eventId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -62,7 +56,6 @@ CREATE TABLE `tb_like` (
     `updateAt` DATETIME(3) NULL,
     `eventId` INTEGER NOT NULL,
 
-    UNIQUE INDEX `tb_like_eventId_key`(`eventId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -75,8 +68,6 @@ CREATE TABLE `tb_participant` (
     `userId` INTEGER NOT NULL,
     `eventId` INTEGER NOT NULL,
 
-    UNIQUE INDEX `tb_participant_userId_key`(`userId`),
-    UNIQUE INDEX `tb_participant_eventId_key`(`eventId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

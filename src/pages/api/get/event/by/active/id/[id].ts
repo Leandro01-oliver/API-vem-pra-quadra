@@ -7,15 +7,15 @@ const handlerGetEventByAtivo = async (
 ) => {
 
     const {
-        userId
+        id
     } = req.query;
 
     if(req.method === "GET"){
         try{
            await eventModel.findMany({
             where:{
-               userId:Number(userId),
-               active:true
+                id: Number(id),
+                active:true
             }
            }
         ).then((result : any)=>{

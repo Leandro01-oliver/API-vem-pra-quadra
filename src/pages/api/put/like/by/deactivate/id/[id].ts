@@ -8,7 +8,7 @@ const handlerPutLikeDeactivateById = async (
 ) => {
 
     const {
-      eventId
+      id
     } = req.query
 
     if(req.method === "PUT"){
@@ -18,7 +18,7 @@ const handlerPutLikeDeactivateById = async (
                    active: false
                 },
                 where:{
-                    eventId: Number(eventId)
+                    id: Number(id)
                 }
             }).then((result : any)=>{
                 res.status(201).json(result);

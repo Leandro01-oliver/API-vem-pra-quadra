@@ -1,23 +1,22 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { eventModel } from "../../../../../../../utils/database/model/event";
 
-const handlerGetEventByRelationId = async (
+
+import { NextApiRequest, NextApiResponse } from "next";
+import { participantModel } from "../../../../../../../utils/database/model/participant";
+
+const handlerDeleteCommetById = async (
     req:NextApiRequest,
     res:NextApiResponse
 ) => {
 
     const {
-        title
+        id
     } = req.query;
 
-    if(req.method === "GET"){
+    if(req.method === "DELETE"){
         try{
-           await eventModel.findFirst({
+           await participantModel.delete({
             where:{
-              title: title?.toString()
-            },
-            select:{
-                id: true,
+               id: Number(id)
             }
            }
         ).then((result : any)=>{
@@ -31,4 +30,4 @@ const handlerGetEventByRelationId = async (
     }
 }
 
-export default handlerGetEventByRelationId;
+export default handlerDeleteCommetById;
